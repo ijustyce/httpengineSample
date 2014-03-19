@@ -11,39 +11,35 @@ import org.gemini.httpengine.net.GMHttpResponse;
 import org.gemini.httpengine.net.GMHttpService;
 
 import android.content.Context;
-import android.util.Log;
 
 /**
  * @author yc
  *
  */
-public class HeLeHui implements OnResponseListener {
+public class HeLeHui {
 	
 	GMHttpRequest request;
 	GMHttpParameters param;
 	GMHttpService httpService;
 	GMHttpResponse response;
+	OnResponseListener responseListener;
 	String result;
 	
-	public HeLeHui(Context context){
+	public HeLeHui(Context context , OnResponseListener responseListener){
 		
 		request = new GMHttpRequest(context);
 		param = new GMHttpParameters();
 		httpService = new GMHttpService();
+		
+		this.responseListener = responseListener;
 	}
 	
 	public void machineFriends(String url , String id){
 		
 		param.setParameter("uid", id);
 		request.setUri(url);
-		request.setOnResponseListener(this);
+		request.setOnResponseListener(responseListener);
 		request.setHttpParameters(param);
 		httpService.executeHttpMethod(request);
-	}
-
-	@Override
-	public void onResponse(GMHttpResponse arg0, GMHttpRequest arg1) {
-		// TODO Auto-generated method stub
-		Log.i("---response---", arg0.parseAsString());
 	}
 }

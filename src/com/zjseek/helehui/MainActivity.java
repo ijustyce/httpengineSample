@@ -1,17 +1,23 @@
 package com.zjseek.helehui;
 
+import org.gemini.httpengine.listener.OnResponseListener;
+import org.gemini.httpengine.net.GMHttpRequest;
+import org.gemini.httpengine.net.GMHttpResponse;
+
 import com.zjseek.net.HeLeHui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity 
+               implements OnResponseListener{
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +43,7 @@ public class MainActivity extends ActionBarActivity {
 	
 	private void get(){
 		
-		HeLeHui hlh = new HeLeHui(this.getBaseContext());
+		HeLeHui hlh = new HeLeHui(this.getBaseContext() , this);
 		hlh.machineFriends("http://www.baidu.com", "haha");
 	}
 
@@ -76,5 +82,11 @@ public class MainActivity extends ActionBarActivity {
 					false);
 			return rootView;
 		}
+	}
+
+	@Override
+	public void onResponse(GMHttpResponse arg0, GMHttpRequest arg1) {
+		// TODO Auto-generated method stub
+		Log.i("---response---", arg0.parseAsString());
 	}
 }
