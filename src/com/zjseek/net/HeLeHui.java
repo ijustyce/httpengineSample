@@ -11,6 +11,9 @@ import org.gemini.httpengine.net.GMHttpResponse;
 import org.gemini.httpengine.net.GMHttpService;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.widget.Toast;
 
 /**
  * @author yc
@@ -23,10 +26,11 @@ public class HeLeHui {
 	GMHttpService httpService;
 	GMHttpResponse response;
 	OnResponseListener responseListener;
-	String result;
+	Context context;
 	
 	public HeLeHui(Context context , OnResponseListener responseListener){
 		
+		this.context = context;
 		request = new GMHttpRequest(context);
 		param = new GMHttpParameters();
 		httpService = new GMHttpService();
@@ -40,6 +44,26 @@ public class HeLeHui {
 		request.setUri(url);
 		request.setOnResponseListener(responseListener);
 		request.setHttpParameters(param);
-		httpService.executeHttpMethod(request);
+		
+		if(isConnected()){
+			httpService.executeHttpMethod(request);
+		}
+		
+		else{
+			Toast.makeText(context, "please connect to net first", 
+					Toast.LENGTH_LONG).show();
+		}
+	}
+	
+	public boolean isConnected(){
+
+		ConnectivityManager conManager = (ConnectivityManager) 
+				context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo networkInfo = conManager.getActiveNetworkInfo();
+		
+		if (networkInfo != null){ 
+			return networkInfo.isAvailable();
+		}
+		return false;
 	}
 }
