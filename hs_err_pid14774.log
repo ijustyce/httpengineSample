@@ -1,0 +1,306 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (javaClasses.cpp:136), pid=14774, tid=3061513024
+#  fatal error: Invalid layout of preloaded class
+#
+# JRE version:  (7.0_45-b18) (build )
+# Java VM: Java HotSpot(TM) Server VM (24.45-b08 mixed mode linux-x86 )
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0xb6606400):  JavaThread "Unknown thread" [_thread_in_vm, id=14780, stack(0xb675f000,0xb67b0000)]
+
+Stack: [0xb675f000,0xb67b0000],  sp=0xb67aed70,  free space=319k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x7dc836]  VMError::report_and_die()+0x1a6
+V  [libjvm.so+0x33a8cc]  report_fatal(char const*, int, char const*)+0x4c
+V  [libjvm.so+0x484dae]  compute_offset(int&, klassOopDesc*, Symbol*, Symbol*, bool)+0x10e
+V  [libjvm.so+0x487104]  java_lang_String::compute_offsets()+0x44
+V  [libjvm.so+0x769d9d]  SystemDictionary::initialize_preloaded_classes(Thread*)+0x22d
+V  [libjvm.so+0x7b27c0]  Universe::genesis(Thread*)+0x410
+V  [libjvm.so+0x7b2c2f]  universe2_init()+0x1f
+V  [libjvm.so+0x44a000]  init_globals()+0xa0
+V  [libjvm.so+0x79ac70]  Threads::create_vm(JavaVMInitArgs*, bool*)+0x200
+V  [libjvm.so+0x4bc18c]  JNI_CreateJavaVM+0x5c
+C  [libjli.so+0x2668]  JavaMain+0x98
+C  [libpthread.so.0+0x6f70]  start_thread+0xd0
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0xb6606400 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=14780, stack(0xb675f000,0xb67b0000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 0.074 loading class 0x8faa5670 done
+Event: 0.075 loading class 0x8faa5100 done
+Event: 0.075 loading class 0x8faa50e0
+Event: 0.075 loading class 0x8faac3e0
+Event: 0.075 loading class 0x8faac3e0 done
+Event: 0.075 loading class 0x8faac410
+Event: 0.075 loading class 0x8faac410 done
+Event: 0.075 loading class 0x8faac440
+Event: 0.075 loading class 0x8faac440 done
+Event: 0.075 loading class 0x8faa50e0 done
+
+
+Dynamic libraries:
+08048000-08049000 r-xp 00000000 08:04 271897     /home/android/jdk1.7.0_45/bin/java
+08049000-0804a000 rw-p 00000000 08:04 271897     /home/android/jdk1.7.0_45/bin/java
+08493000-084b4000 rw-p 00000000 00:00 0          [heap]
+8e243000-8e45c000 rw-p 00000000 00:00 0 
+8e45c000-8e51a000 r--s 0103e000 08:04 142250     /home/android/sdk/platforms/android-14/android.jar
+8e51a000-8f900000 rw-p 00000000 00:00 0 
+8f900000-8f921000 rw-p 00000000 00:00 0 
+8f921000-8fa00000 ---p 00000000 00:00 0 
+8fa82000-8fb00000 rw-p 00000000 00:00 0 
+8fb00000-8fb21000 rw-p 00000000 00:00 0 
+8fb21000-8fc00000 ---p 00000000 00:00 0 
+8fc1a000-8fc1b000 ---p 00000000 00:00 0 
+8fc1b000-8fc9b000 rw-p 00000000 00:00 0          [stack:14782]
+8fc9b000-8fc9c000 ---p 00000000 00:00 0 
+8fc9c000-8fd24000 rw-p 00000000 00:00 0          [stack:14781]
+8fd24000-8fd3c000 rw-p 00000000 00:00 0 
+8fd3c000-8fd47000 rw-p 00000000 00:00 0 
+8fd47000-8fde4000 rw-p 00000000 00:00 0 
+8fde4000-8fdec000 rw-p 00000000 00:00 0 
+8fdec000-8fe04000 rw-p 00000000 00:00 0 
+8fe04000-8fe0f000 rw-p 00000000 00:00 0 
+8fe0f000-8feab000 rw-p 00000000 00:00 0 
+8feab000-8feb1000 rw-p 00000000 00:00 0 
+8feb1000-8feff000 rw-p 00000000 00:00 0 
+8feff000-90f00000 rw-p 00000000 00:00 0 
+90f00000-93f00000 rw-p 00000000 00:00 0 
+93f00000-953c0000 rw-p 00000000 00:00 0 
+953c0000-a8d80000 rw-p 00000000 00:00 0 
+a8d80000-a9800000 rw-p 00000000 00:00 0 
+a9800000-b3500000 rw-p 00000000 00:00 0 
+b350b000-b3514000 rw-p 00000000 00:00 0 
+b3514000-b35cb000 rw-p 00000000 00:00 0 
+b35cb000-b380b000 rwxp 00000000 00:00 0 
+b380b000-b65cb000 rw-p 00000000 00:00 0 
+b65cb000-b6600000 r--s 00000000 08:03 282808     /var/cache/nscd/passwd
+b6600000-b6659000 rw-p 00000000 00:00 0 
+b6659000-b6700000 ---p 00000000 00:00 0 
+b670a000-b671a000 rw-p 00000000 00:00 0 
+b671a000-b6731000 r-xp 00000000 08:04 399476     /home/android/jdk1.7.0_45/jre/lib/i386/libzip.so
+b6731000-b6732000 rw-p 00017000 08:04 399476     /home/android/jdk1.7.0_45/jre/lib/i386/libzip.so
+b6732000-b6755000 r-xp 00000000 08:04 399443     /home/android/jdk1.7.0_45/jre/lib/i386/libjava.so
+b6755000-b6756000 rw-p 00022000 08:04 399443     /home/android/jdk1.7.0_45/jre/lib/i386/libjava.so
+b6756000-b675d000 r-xp 00000000 08:03 391768     /lib/i386-linux-gnu/librt-2.19.so
+b675d000-b675e000 r--p 00006000 08:03 391768     /lib/i386-linux-gnu/librt-2.19.so
+b675e000-b675f000 rw-p 00007000 08:03 391768     /lib/i386-linux-gnu/librt-2.19.so
+b675f000-b6762000 ---p 00000000 00:00 0 
+b6762000-b67b0000 rw-p 00000000 00:00 0          [stack:14780]
+b67b0000-b67f4000 r-xp 00000000 08:03 391694     /lib/i386-linux-gnu/libm-2.19.so
+b67f4000-b67f5000 r--p 00043000 08:03 391694     /lib/i386-linux-gnu/libm-2.19.so
+b67f5000-b67f6000 rw-p 00044000 08:03 391694     /lib/i386-linux-gnu/libm-2.19.so
+b67f6000-b706d000 r-xp 00000000 08:04 531255     /home/android/jdk1.7.0_45/jre/lib/i386/server/libjvm.so
+b706d000-b70d2000 rw-p 00876000 08:04 531255     /home/android/jdk1.7.0_45/jre/lib/i386/server/libjvm.so
+b70d2000-b74f5000 rw-p 00000000 00:00 0 
+b74f5000-b769e000 r-xp 00000000 08:03 391646     /lib/i386-linux-gnu/libc-2.19.so
+b769e000-b769f000 ---p 001a9000 08:03 391646     /lib/i386-linux-gnu/libc-2.19.so
+b769f000-b76a1000 r--p 001a9000 08:03 391646     /lib/i386-linux-gnu/libc-2.19.so
+b76a1000-b76a2000 rw-p 001ab000 08:03 391646     /lib/i386-linux-gnu/libc-2.19.so
+b76a2000-b76a5000 rw-p 00000000 00:00 0 
+b76a5000-b76a8000 r-xp 00000000 08:03 391661     /lib/i386-linux-gnu/libdl-2.19.so
+b76a8000-b76a9000 r--p 00002000 08:03 391661     /lib/i386-linux-gnu/libdl-2.19.so
+b76a9000-b76aa000 rw-p 00003000 08:03 391661     /lib/i386-linux-gnu/libdl-2.19.so
+b76aa000-b76bd000 r-xp 00000000 08:04 399631     /home/android/jdk1.7.0_45/lib/i386/jli/libjli.so
+b76bd000-b76be000 rw-p 00012000 08:04 399631     /home/android/jdk1.7.0_45/lib/i386/jli/libjli.so
+b76be000-b76bf000 rw-p 00000000 00:00 0 
+b76bf000-b76d7000 r-xp 00000000 08:03 391760     /lib/i386-linux-gnu/libpthread-2.19.so
+b76d7000-b76d8000 r--p 00017000 08:03 391760     /lib/i386-linux-gnu/libpthread-2.19.so
+b76d8000-b76d9000 rw-p 00018000 08:03 391760     /lib/i386-linux-gnu/libpthread-2.19.so
+b76d9000-b76dc000 rw-p 00000000 00:00 0 
+b76dc000-b76e4000 rw-s 00000000 08:03 26122      /tmp/hsperfdata_yc/14774
+b76e4000-b76e5000 rw-p 00000000 00:00 0 
+b76e5000-b76e6000 r--p 00000000 00:00 0 
+b76e6000-b76f1000 r-xp 00000000 08:04 399475     /home/android/jdk1.7.0_45/jre/lib/i386/libverify.so
+b76f1000-b76f2000 rw-p 0000b000 08:04 399475     /home/android/jdk1.7.0_45/jre/lib/i386/libverify.so
+b76f2000-b76f4000 rw-p 00000000 00:00 0 
+b76f4000-b76f5000 r-xp 00000000 00:00 0          [vdso]
+b76f5000-b7715000 r-xp 00000000 08:03 391620     /lib/i386-linux-gnu/ld-2.19.so
+b7715000-b7716000 r--p 0001f000 08:03 391620     /lib/i386-linux-gnu/ld-2.19.so
+b7716000-b7717000 rw-p 00020000 08:03 391620     /lib/i386-linux-gnu/ld-2.19.so
+bfe3c000-bfe5d000 rw-p 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 -Xbootclasspath:/home/android/sdk/platforms/android-14/android.jar 
+java_command: com.zjseek.unitText.MainTest
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/home/android/jdk1.7.0_45
+JRE_HOME=/home/android/jdk1.7.0_45/jre
+CLASSPATH=.:.:$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:/home/android/jdk1.7.0_45/lib:/home/android/jdk1.7.0_45/jre/lib
+PATH=/home/android/jdk1.7.0_45/bin:/home/android/jdk1.7.0_45/jre/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/yc/bin:/home/android/sdk/tools:/home/android/sdk/platform-tools
+LD_LIBRARY_PATH=/home/android/jdk1.7.0_45/jre/lib/i386/server:/home/android/jdk1.7.0_45/jre/lib/i386:/home/android/jdk1.7.0_45/jre/../lib/i386:/home/android/jdk1.7.0_45/jre/lib/i386/client:/home/android/jdk1.7.0_45/jre/lib/i386:
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x7dd350], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x7dd350], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x678b60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x678b60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x678b60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x678b60], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x67a050], sa_mask[0]=0x00000004, sa_flags=0x10000004
+SIGHUP: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGINT: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGTERM: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGQUIT: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+
+
+---------------  S Y S T E M  ---------------
+
+OS:jessie/sid
+
+uname:Linux 3.13.0-17-generic #37-Ubuntu SMP Mon Mar 10 21:47:52 UTC 2014 i686
+libc:glibc 2.19 NPTL 2.19 
+rlimit: STACK 8192k, CORE 0k, NPROC 15837, NOFILE 4096, AS infinity
+load average:0.67 0.58 0.50
+
+/proc/meminfo:
+MemTotal:        2055020 kB
+MemFree:          156188 kB
+Buffers:           44712 kB
+Cached:           684652 kB
+SwapCached:        13688 kB
+Active:           856460 kB
+Inactive:         914016 kB
+Active(anon):     611156 kB
+Inactive(anon):   660652 kB
+Active(file):     245304 kB
+Inactive(file):   253364 kB
+Unevictable:          68 kB
+Mlocked:              68 kB
+HighTotal:       1174344 kB
+HighFree:          39900 kB
+LowTotal:         880676 kB
+LowFree:          116288 kB
+SwapTotal:        999420 kB
+SwapFree:         751740 kB
+Dirty:               220 kB
+Writeback:             0 kB
+AnonPages:       1030848 kB
+Mapped:           171860 kB
+Shmem:            230312 kB
+Slab:              81000 kB
+SReclaimable:      59752 kB
+SUnreclaim:        21248 kB
+KernelStack:        4192 kB
+PageTables:        13472 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     2026928 kB
+Committed_AS:    5089744 kB
+VmallocTotal:     122880 kB
+VmallocUsed:       20064 kB
+VmallocChunk:      98404 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    346112 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       53240 kB
+DirectMap2M:      860160 kB
+
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 23 stepping 6, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, tsc
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Core(TM)2 Duo CPU     T8100  @ 2.10GHz
+stepping	: 6
+microcode	: 0x60c
+cpu MHz		: 800.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 2
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx lm constant_tsc arch_perfmon pebs bts aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm sse4_1 lahf_lm ida dtherm tpr_shadow vnmi flexpriority
+bogomips	: 4189.90
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 23
+model name	: Intel(R) Core(TM)2 Duo CPU     T8100  @ 2.10GHz
+stepping	: 6
+microcode	: 0x60c
+cpu MHz		: 2101.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 2
+core id		: 1
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 10
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe nx lm constant_tsc arch_perfmon pebs bts aperfmperf pni dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm sse4_1 lahf_lm ida dtherm tpr_shadow vnmi flexpriority
+bogomips	: 4189.90
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 2055020k(156188k free), swap 999420k(751740k free)
+
+vm_info: Java HotSpot(TM) Server VM (24.45-b08) for linux-x86 JRE (1.7.0_45-b18), built on Oct  8 2013 05:44:51 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Wed Mar 19 15:01:14 2014
+elapsed time: 0 seconds
+
