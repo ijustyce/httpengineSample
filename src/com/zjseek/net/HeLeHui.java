@@ -38,12 +38,33 @@ public class HeLeHui {
 		this.responseListener = responseListener;
 	}
 	
-	public void machineFriends(String url , String id){
+	/**
+	 * machine friends main page
+	 * @param url url of machine friends page
+	 * @param uid user id
+	 * @param width screen width
+	 * @param height screen height
+	 * @param net network type , WiFi or 3G ?
+	 */
+	public void machineFriends(String url , String uid , int width , 
+			int height , String net){
 		
-		param.setParameter("uid", id);
+		param.setIntParameter("sWidth", width);
+		param.setIntParameter("sHeight", height);
+		param.setParameter("uid", uid);
+		param.setParameter("network", net);
+		
 		request.setUri(url);
 		request.setOnResponseListener(responseListener);
 		request.setHttpParameters(param);
+		
+		excute();
+	}
+	
+	/**
+	 * excute a http request
+	 */
+	private void excute(){
 		
 		if(isConnected()){
 			httpService.executeHttpMethod(request);
@@ -55,6 +76,10 @@ public class HeLeHui {
 		}
 	}
 	
+	/**
+	 * is phone connect to network
+	 * @return
+	 */
 	public boolean isConnected(){
 
 		ConnectivityManager conManager = (ConnectivityManager) 

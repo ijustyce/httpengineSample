@@ -44,7 +44,7 @@ public class MainActivity extends ActionBarActivity
 	private void get(){
 		
 		HeLeHui hlh = new HeLeHui(this.getBaseContext() , this);
-		hlh.machineFriends("http://www.baidu.com", "haha");
+	//	hlh.machineFriends("http://www.baidu.com", "haha");
 	}
 
 	@Override
