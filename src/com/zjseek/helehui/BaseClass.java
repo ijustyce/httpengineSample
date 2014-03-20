@@ -20,6 +20,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 public class BaseClass extends Activity implements OnResponseListener{
@@ -84,10 +85,20 @@ public class BaseClass extends Activity implements OnResponseListener{
 		}
 	}
 
-	@Override
-	public void onResponse(GMHttpResponse arg0, GMHttpRequest arg1) {
-		// TODO Auto-generated method stub
+	/**
+	 * get response data , please override it in your activity
+	 */
+	public void onResponse(GMHttpResponse response, GMHttpRequest request) {
 		
+		if(!request.isFailed()){
+			
+			Log.i("---response---", response.parseAsString());
+		}
+		
+		else{
+			
+			Log.i("---response---", "response failed , perhaps not connected to network");
+		}
 	}
 	
 	/**

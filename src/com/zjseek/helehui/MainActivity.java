@@ -86,8 +86,17 @@ public class MainActivity extends ActionBarActivity
 	}
 
 	@Override
-	public void onResponse(GMHttpResponse arg0, GMHttpRequest arg1) {
+	public void onResponse(GMHttpResponse response, GMHttpRequest request) {
 		// TODO Auto-generated method stub
-		Log.i("---response---", arg0.parseAsString());
+		
+		if(!request.isFailed()){
+			
+			Log.i("---response---", response.parseAsString());
+		}
+		
+		else{
+			
+			Log.i("---response---", "response failed , perhaps not connected to network");
+		}
 	}
 }
