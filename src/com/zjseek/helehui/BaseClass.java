@@ -9,21 +9,24 @@
 
 package com.zjseek.helehui;
 
+import java.util.Map;
+
 import org.gemini.httpengine.listener.OnResponseListener;
 import org.gemini.httpengine.net.GMHttpParameters;
 import org.gemini.httpengine.net.GMHttpRequest;
 import org.gemini.httpengine.net.GMHttpResponse;
 import org.gemini.httpengine.net.GMHttpService;
 
-import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.widget.Toast;
 
-public class BaseClass extends Activity implements OnResponseListener{
+public class BaseClass extends ActionBarActivity 
+                      implements OnResponseListener{
 
 	private GMHttpRequest httpRequest;
 	private GMHttpParameters httpParam;
@@ -60,10 +63,13 @@ public class BaseClass extends Activity implements OnResponseListener{
 	/**
 	 * send a get request
 	 */
-	public void sendGet(){
+	public void sendGet(Map<String,String> map , String url){
 		
-		httpParam.setIntParameter("" , 123);
-		httpRequest.setUri("");
+		for(Map.Entry<String, String> entry:map.entrySet()){   
+			
+			httpParam.setParameter(entry.getKey(), entry.getValue());
+		} 
+		httpRequest.setUri(url);
 		httpRequest.setOnResponseListener(this);
 		httpRequest.setHttpParameters(httpParam);
 		
@@ -102,18 +108,26 @@ public class BaseClass extends Activity implements OnResponseListener{
 	}
 	
 	/**
+	 * 
 	 * is phone connect to network
+	 * 
 	 * @return true if connected to network or return false
 	 */
-	public boolean isConnected(){
 
-		ConnectivityManager conManager = (ConnectivityManager)this
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
+	public boolean isConnected() {
+
+		ConnectivityManager conManager = (ConnectivityManager) this
+
+		.getSystemService(Context.CONNECTIVITY_SERVICE);
+
 		NetworkInfo networkInfo = conManager.getActiveNetworkInfo();
-		
-		if (networkInfo != null){ 
+
+		if (networkInfo != null) {
+
 			return networkInfo.isAvailable();
+
 		}
+
 		return false;
 	}
 }

@@ -1,14 +1,13 @@
 package com.zjseek.helehui;
 
-import org.gemini.httpengine.listener.OnResponseListener;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.gemini.httpengine.net.GMHttpRequest;
 import org.gemini.httpengine.net.GMHttpResponse;
 
-import com.zjseek.net.HeLeHui;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,9 +15,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class MainActivity extends ActionBarActivity 
-               implements OnResponseListener{
+public class MainActivity extends BaseClass{
 
+	private Map<String,String> map;
+	private String url;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -28,24 +28,29 @@ public class MainActivity extends ActionBarActivity
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+		
+		init();
+	}
+	
+	private void init(){
+		
+		url = "http://www.baidu.com";
+		
+		map = new HashMap<String,String>();
+		map.put("uid", "ijustyce");
+		map.put("net", "WiFi");
+		map.put("sWidth", "480");
 	}
 	
 	public void btClick(View v){
 		
 		switch(v.getId()){
 		case R.id.get:
-			get();
+			sendGet(map , url);
 			break;
 		default:
 			break;
 		}
-	}
-	
-	private void get(){
-		
-		HeLeHui hlh = new HeLeHui(this.getBaseContext() , this);
-		hlh.machineFriends("http://www.baidu.com", "ijustyce" , 480,
-				800, "WiFi");
 	}
 
 	@Override
