@@ -7,7 +7,6 @@ package com.zjseek.net;
 import org.gemini.httpengine.listener.OnResponseListener;
 import org.gemini.httpengine.net.GMHttpParameters;
 import org.gemini.httpengine.net.GMHttpRequest;
-import org.gemini.httpengine.net.GMHttpResponse;
 import org.gemini.httpengine.net.GMHttpService;
 
 import android.content.Context;
@@ -24,7 +23,6 @@ public class HeLeHui {
 	GMHttpRequest request;
 	GMHttpParameters param;
 	GMHttpService httpService;
-	GMHttpResponse response;
 	OnResponseListener responseListener;
 	Context context;
 	
@@ -58,7 +56,8 @@ public class HeLeHui {
 		request.setOnResponseListener(responseListener);
 		request.setHttpParameters(param);
 		
-		excute();
+	//	excute();
+		httpService.executeHttpMethod(request);
 	}
 	
 	/**
